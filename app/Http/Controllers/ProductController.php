@@ -31,7 +31,7 @@ class ProductController extends Controller
             'product_sku' => 'required|max:200|min:5',
             'description' => 'max:1024',
         ]);
- 
+
         if ($validator->fails()) {
             return response()->json([
                 "message" => "Input not Valid",
@@ -42,10 +42,10 @@ class ProductController extends Controller
         // Validasi Business
         $productExist = Product::selectRaw("1")
             ->where("product_sku", request("product_sku"))->first();
-        
-        if(!is_null($productExist)) {
+
+        if (!is_null($productExist)) {
             return response()->json([
-                "message" => "Product SKU with code ".request("product_sku"). " alreadry exists"
+                "message" => "Product SKU with code " . request("product_sku") . " already exists"
             ], 422);
         }
 
@@ -68,7 +68,7 @@ class ProductController extends Controller
             'product_name' => 'required|max:200|min:5',
             'description' => 'max:1024',
         ]);
- 
+
         if ($validator->fails()) {
             return response()->json([
                 "message" => "Input not Valid",
@@ -78,7 +78,7 @@ class ProductController extends Controller
 
         $product = Product::find($id);
 
-        if(is_null($product)) {
+        if (is_null($product)) {
             return response()->json([
                 "message" => "Product with id $id not found"
             ], 422);
@@ -99,7 +99,7 @@ class ProductController extends Controller
 
         $product = Product::find($id);
 
-        if(is_null($product)) {
+        if (is_null($product)) {
             return response()->json([
                 "message" => "Product with id $id not found"
             ], 422);
@@ -119,7 +119,7 @@ class ProductController extends Controller
 
         $product = Product::find($id);
 
-        if(is_null($product)) {
+        if (is_null($product)) {
             return response()->json([
                 "message" => "Product with id $id not found"
             ], 422);
