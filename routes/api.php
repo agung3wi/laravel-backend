@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -41,5 +42,7 @@ Route::get("/product/{id}", [ProductController::class, "detail"]);
 Route::patch("/product/{id}", [ProductController::class, "update"]);
 Route::delete("/product/{id}", [ProductController::class, "delete"]);
 // });
+
+Route::get('/sales', [SaleController::class, "index"]);
 
 Route::post('/login', [AuthController::class, "login"]);
