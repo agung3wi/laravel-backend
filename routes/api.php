@@ -30,7 +30,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get("/", function () {
-    $data = [1, 2, 3];
+    $data = [
+        "version" => "2.0"
+    ];
     return response()->json([
         "message" => "Success",
         "data" => $data
